@@ -1,0 +1,107 @@
+actions:
+- action_check_location
+- action_search_restaurants
+- action_send_email
+- action_restart 
+- action_slot_reset
+- utter_ask_budget
+- utter_ask_cuisine
+- utter_ask_email
+- utter_ask_howcanhelp
+- utter_ask_location
+- utter_ask_send_email
+- utter_no_email_sent
+- utter_email_sent
+- utter_default
+- utter_different_budget
+- utter_goodbye
+- utter_greet
+- utter_sorry_dont_operate
+entities:
+- cuisine
+- emailid
+- location
+- people
+- price
+intents:
+- deny
+- greet
+- restaurant_search
+- inform
+- affirm
+- goodbye
+- stop
+slots:
+  cuisine:
+    type: categorical
+    values:
+    - chinese
+    - american
+    - mexican
+    - italian
+    - south_indian
+    - north_indian
+  emailid:
+    type: text
+  location:
+    type: text
+  location_match:
+    type: categorical
+    values:
+    - zero
+    - one
+  price:
+    type: text
+  no_results:
+      type: bool
+      initial_value: True
+templates:
+  utter_ask_budget:
+  - buttons:
+    - payload: Lesser than Rs 300
+      title: Lesser than Rs. 300
+    - payload: Rs 300 to 700
+      title: Rs. 300 to 700
+    - payload: More than 700
+      title: More than 700
+    text: What's the average budget for two people?
+  utter_ask_cuisine:
+  - buttons:
+    - payload: chinese
+      title: Chinese
+    - payload: italian
+      title: Italian
+    - payload: mexican
+      title: Mexican
+    - payload: american
+      title: American
+    - payload: south_indian
+      title: South Indian
+    - payload: north_indian
+      title: North Indian
+    text: What kind of cuisine would you like to have?
+  utter_ask_email:
+  - text: Could you please mention your email id to send the details?
+  utter_ask_howcanhelp:
+  - text: How can I help you?
+  utter_ask_location:
+  - text: In what location?
+  utter_ask_send_email:
+  - text: Should I send you details of all the restaurants over an email?
+  utter_email_sent:
+  - text: Sent. Bon Appetit!
+  utter_no_email_sent:
+  - text: Okay. Bon Appetit!
+  utter_default:
+  - text: Sorry, I couldn't understand what you said.
+  utter_different_budget:
+  - text: Would you like to try with a different budget?
+  utter_goodbye:
+  - text: Goodbye!
+  - text: Bye-bye!
+  utter_greet:
+  - text: Hey there! How may I help you?
+  - text: Hi, How can I help you!
+  - text: Hey, How is it going? How may I help you Today?
+  utter_sorry_dont_operate:
+  - text: Sorry, we don’t operate in this city yet. Can you please specify some other location?
